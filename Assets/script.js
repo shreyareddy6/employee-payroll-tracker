@@ -16,19 +16,19 @@ const collectEmployees = function() {
 
     //salary is string initially as we get it from prompt input, parseFloat converts it into number
     salary = parseFloat(salary);
-    console.log(salary);
 
+    //store the details of the employee in an object
     const employeeData = {
       firstName : firstName,
       lastName : lastName,
       salary : salary
     }
     employeesArray.push(employeeData);
-    console.log(employeesArray);
     keepGoing=window.confirm("Do you want to add another employee?");
   }
   return employeesArray;
 }
+
 // Display the average salary
 const displayAverageSalary = function(employeesArray) {
   // TODO: Calculate and display the average salary
@@ -37,12 +37,15 @@ const displayAverageSalary = function(employeesArray) {
     totalSalary += employee.salary; 
   }
   let averageSalary = totalSalary / employeesArray.length;
-  return averageSalary;
+  console.log(`The average employee salary between our ${employeesArray.length} employee(s) is $${averageSalary}`);
 }
 
 // Select a random employee
 const getRandomEmployee = function(employeesArray) {
   // TODO: Select and display a random employee
+  const randomIndex =  Math.floor(Math.random()*employeesArray.length);
+  const randomEmployee = employeesArray[randomIndex];
+  console.log(`Congratulations to ${randomEmployee.firstName} ${randomEmployee.lastName}, our random drawing winner!`);
 }
 
 /*
